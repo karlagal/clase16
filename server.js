@@ -16,9 +16,16 @@ function searchHandler  (request, response) {
     response.send (request.query.q)
 }
 
-app.use ('/ assets', express.static('static')
+app.use (express.json())
+app.use ('/ assets', express.static('static'))
 
-app.get ('/', rootHandler)
+app.all ('/', rootHandler)
+
+function authenticationHandler (request, response) {
+    response.send ("moris")
+    console.log(request.body)
+} 
+app.post('/auth', authenticationHandler)
 
 //app.all ('/ search', searchHandler)
-app.listen (9000)
+app.listen (9000)  
