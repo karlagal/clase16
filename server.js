@@ -16,7 +16,7 @@ function searchHandler  (request, response) {
     response.send (request.query.q)
 }
 
-app.use (serveMiddleware)
+app.use ('/ assets', express.static('static')
 
 app.get ('/', rootHandler)
 
